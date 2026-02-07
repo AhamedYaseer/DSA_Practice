@@ -1,5 +1,5 @@
 Problem:
-Check if a String Is an Acronym of Words
+Check if a String Is an Acronym of Words (https://leetcode.com/problems/check-if-a-string-is-an-acronym-of-words/description/)
 
 Approach:
 String Traversal
