@@ -1,8 +1,8 @@
 Problem:
-Is Subsequence — LeetCode
+Is Subsequence (https://leetcode.com/problems/is-subsequence/description/)
 
 Approach:
-String Search with Progressive Slicing (Simulation)
+Simulation using Search and Slicing
 
 Why this works:
 For each character in s, we check whether it appears in t.
