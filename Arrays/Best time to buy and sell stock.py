@@ -26,3 +26,35 @@ class Solution:
                 if (prices[j] - prices[i]) > prof:
                     prof = prices[j] - prices[i]
         return prof
+
+Approach:
+Running Minimum (Greedy, Single Pass)
+
+Why this works:
+We scan the prices once while keeping track of the minimum price seen so far.
+At each day, we calculate the profit if we sell on the current day using the minimum price.
+We update the maximum profit whenever a better profit is found. 
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(1)
+
+# ----------------------------------
+# Optimal single-pass solution
+# ----------------------------------
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        prof = 0
+        min_price = prices[0]
+
+        for i in prices:
+            if i < min_price:
+                min_price = i
+            if i - min_price > prof:
+                prof = i - min_price
+
+        return prof
+
