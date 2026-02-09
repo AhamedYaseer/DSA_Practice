@@ -32,3 +32,46 @@ class Solution:
             else:
                 return False
         return True
+
+
+Approach:
+Two Pointers
+
+Why this works:
+We move through string t one time and try to match the characters of s in the same order.
+Whenever the current characters of s and t match, we move both pointers forward.
+If they do not match, we move only the pointer of t to keep searching.
+
+At the end, if we have matched all characters of s, then s is a subsequence of t.
+
+Time Complexity:
+O(n)
+Single pass through t.
+
+Space Complexity:
+O(1)
+Only pointer variables are used.
+
+# ----------------------------------
+# Two-pointer optimal solution
+# ----------------------------------
+
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        s_pt = 0
+        t_pt = 0
+
+        if len(s) > len(t):
+            return False
+
+        while t_pt < len(t) and s_pt < len(s): #exit atleast anyone of
+            if s[s_pt] == t[t_pt]:   #if character match, move both pointer
+                s_pt += 1
+                t_pt += 1
+            else:                    #else, only t pointer
+                t_pt += 1
+
+        if s_pt == len(s): #if s is traversed fully, then it is a substring
+            return True
+        return False
+
