@@ -51,6 +51,7 @@ Each folder contains:
 * Greedy (Running Minimum)
 * Linear Scan
 * Range Detection
+* Expected Value Tracking
 
 ### Strings
 
