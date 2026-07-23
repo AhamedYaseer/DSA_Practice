@@ -11,13 +11,14 @@ This folder contains array-based DSA problems.
 * Filtering
 * Greedy (Running Minimum)
 * Range Detection
+* Expected value tracking
 
 ## Problems Covered
 
-| Problem                         | Approach / Pattern                              |
-| ------------------------------- | ----------------------------------------------- |
-| Two Sum                         | Brute Force, Hashing                            |
-| Remove Element                  | Filtering, Two Pointers                         |
-| Find Closest Number to Zero     | Linear Scan / Comparison                        |
-| Best Time to Buy and Sell Stock | Brute Force, Greedy (Running Minimum)           |
-| Summary Ranges                  | Range Detection, Membership Check (Brute Force) |
+| Problem                         | Approach / Pattern                                       |
+| --------------------------------| -------------------------------------------------------- |
+| Two Sum                         | Brute Force, Hashing                                     |
+| Remove Element                  | Filtering, Two Pointers                                  |
+| Find Closest Number to Zero     | Linear Scan / Comparison                                 |
+| Best Time to Buy and Sell Stock | Brute Force, Greedy (Running Minimum)                    |
+| Summary Ranges                  | Membership Check (Brute Force), Expected Value Tracking  |
