@@ -21,7 +21,7 @@ Space Complexity:
 O(1)
 
 # ----------------------------------
-# Membership-check based solution 1
+# Membership-check based solution 1 (brute force)
 # ----------------------------------
 
 class Solution:
@@ -46,7 +46,7 @@ class Solution:
         return output
 
 # ----------------------------------
-# Membership-check based solution 2
+# Membership-check based solution 2 (brute force)
 # ----------------------------------
 
 
@@ -62,4 +62,49 @@ class Solution:
                 temp+=str(n)
                 output.append(temp)
                 temp=""
+        return output
+
+Approach:
+Linear Scan with Expected Value Tracking
+
+Why this works:
+We keep an expected value, initially equal to the first element.
+For each element:
+- If it matches the expected value, the current range continues.
+- Otherwise, the previous range has ended. We store that range and
+  start a new one from the current element.
+
+After the loop, the last range has not yet been stored, so we append
+it separately.
+                                                      
+Time Complexity:
+O(n)
+Each element is visited exactly once.
+
+Space Complexity:
+O(1)
+(Excluding the output list)
+
+# ---------------------------------------
+# Expected Value Tracking (Optimal)
+# ---------------------------------------
+
+
+class Solution:
+    def summaryRanges(self, nums: List[int]) -> List[str]:
+        output=[]
+        if not nums:          #handling empty array case
+            return output
+        expected_val = nums[0]  # expected current value in the range
+        list_ptr=0            #tracks index of list
+        start=nums[0]
+        while list_ptr<len(nums):
+            if nums[list_ptr]!=expected_val: 
+                end=expected_val-1
+                output.append(f"{start}->{end}" if start!=end else str(start))
+                start=expected_val=nums[list_ptr]
+            expected_val+=1
+            list_ptr+=1
+        end=nums[-1]                    # The last range has no next element to trigger a break, so append it after the loop.
+        output.append(f"{start}->{end}" if start!=end else str(start))
         return output
