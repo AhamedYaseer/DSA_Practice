@@ -31,6 +31,7 @@ Each folder contains:
 3. Find Closest Number to Zero
 4. Best Time to Buy and Sell Stock
 5. Summary Ranges
+6. Product of Array Except Self
 
 ### Strings
 
@@ -52,6 +53,7 @@ Each folder contains:
 * Linear Scan
 * Range Detection
 * Expected Value Tracking
+* Product of Array Except Self
 
 ### Strings
 
