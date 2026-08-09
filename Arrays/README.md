@@ -12,6 +12,7 @@ This folder contains array-based DSA problems.
 * Greedy (Running Minimum)
 * Range Detection
 * Expected value tracking
+* Prefix/Suffix Products
 
 ## Problems Covered
 
@@ -22,3 +23,5 @@ This folder contains array-based DSA problems.
 | Find Closest Number to Zero     | Linear Scan / Comparison                                 |
 | Best Time to Buy and Sell Stock | Brute Force, Greedy (Running Minimum)                    |
 | Summary Ranges                  | Membership Check (Brute Force), Expected Value Tracking  |
+| Product of Array Except Self    | Prefix/Suffix Products                                   |
+
