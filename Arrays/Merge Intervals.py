@@ -69,3 +69,50 @@ class Solution:
             second = 0
 
         return array
+
+
+Approach:
+Sorting + Linear Scan
+
+Why this works:
+First, we sort the intervals based on their starting values.
+
+After sorting, overlapping intervals will appear next to each other.
+We keep the last merged interval in the output list and compare it
+with the current interval.
+
+If the current interval overlaps with the last merged interval,
+we merge them by keeping the smaller start and larger end.
+
+If there is no overlap, the current interval is added as a new
+interval to the output.
+
+Time Complexity:
+O(n log n)
+Sorting takes O(n log n), and the subsequent linear scan takes O(n).
+
+Space Complexity:
+O(n)
+The output list can contain up to n intervals.
+
+# ----------------------------------
+# Sorting + Linear Scan
+# ----------------------------------
+
+class Solution:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        intervals.sort(key=lambda x: x[0])
+        output = []
+        output.append(intervals[0])
+
+        for i in range(1, len(intervals)):
+            if intervals[i][0] <= output[-1][1]:
+                addElem = [
+                    output[-1][0],
+                    max(output[-1][1], intervals[i][1])
+                ]
+                output[-1] = addElem
+            else:
+                output.append(intervals[i])
+
+        return output
