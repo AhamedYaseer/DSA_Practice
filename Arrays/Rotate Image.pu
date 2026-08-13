@@ -1,0 +1,44 @@
+Problem:
+Rotate Image (https://leetcode.com/problems/rotate-image/description/)
+
+Approach:
+Extra Matrix (Column-to-Row Transformation)
+
+Why this works:
+A 90° clockwise rotation can be achieved by taking each column
+of the original matrix from bottom to top and placing it as a row
+in the output matrix.
+
+For each column:
+- Traverse from the bottom row to the top row.
+- Store the elements in the corresponding row of the output matrix.
+
+After constructing the rotated matrix, we use matrix[:] = output
+to replace the contents of the original matrix while keeping the
+same matrix object.
+
+Time Complexity:
+O(n²)
+Every element of the matrix is visited exactly once.
+
+Space Complexity:
+O(n²)
+An additional n × n matrix is created to store the rotated matrix.
+
+# ----------------------------------
+# Extra Matrix (Column-to-Row Transformation)
+# ----------------------------------
+
+class Solution:
+    def rotate(self, matrix: List[List[int]]) -> None:
+        output = [[0] * len(matrix) for _ in range(len(matrix))]
+
+        row = 0
+        for i in range(len(matrix)):
+            col = 0
+            for j in range(len(matrix) - 1, -1, -1):
+                output[row][col] = matrix[j][i]
+                col += 1
+            row += 1
+
+        matrix[:] = output
