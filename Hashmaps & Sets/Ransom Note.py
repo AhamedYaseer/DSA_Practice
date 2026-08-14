@@ -49,3 +49,56 @@ class Solution:
             if i not in mag_count or mag_count[i]<ran_count[i]:
                 return False
         return True
+
+Approach:
+Hash Map / Required Character Counting
+
+Why this works:
+We first count the characters in ransomNote
+
+Then, while traversing the magazine, whenever a character in ransomNote is found
+we deduct it by 1
+
+After completely traversing the magazine, if any character still has a positive
+count in counter(ransomNote), we return False because in ransomNote that character
+is appearing more than that of in magazine
+
+Otherwise, the ransom note can be constructed and we return True.
+
+This improves the brute-force version by using only one dictionary
+instead of maintaining separate dictionaries for ransomNote and
+magazine.
+
+Time Complexity:
+O(R + M)
+We traverse ransomNote and magazine once. The final dictionary
+traversal takes O(K), where K is the number of distinct characters,
+so overall this remains O(R + M).
+
+Space Complexity:
+O(K)
+The dictionary stores the required count for each distinct character.
+
+# ----------------------------------
+# Hash Map / Required Character Counting
+# ----------------------------------
+
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        ran_count = {}
+
+        for i in ransomNote:
+            if i not in ran_count:
+                ran_count[i] = 1
+            else:
+                ran_count[i] += 1
+
+        for i in magazine:
+            if i in ran_count:
+                ran_count[i] -= 1
+
+        for i in ran_count:
+            if ran_count[i] > 0:
+                return False
+
+        return True
