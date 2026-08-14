@@ -32,24 +32,20 @@ K is the number of distinct characters.
 
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        ran_count = {}
-        mag_count = {}
-
+        ran_count={}
+        mag_count={}
         for i in ransomNote:
             if i not in ran_count:
-                ran_count[i] = 0
+                ran_count[i]=1
             else:
-                ran_count[i] += 1
-
+                ran_count[i]+=1
         for i in magazine:
             if i in ran_count:
                 if i not in mag_count:
-                    mag_count[i] = 0
+                    mag_count[i]=1
                 else:
-                    mag_count[i] += 1
-
+                    mag_count[i]+=1
         for i in ran_count:
-            if i not in mag_count or mag_count[i] < ran_count[i]:
+            if i not in mag_count or mag_count[i]<ran_count[i]:
                 return False
-
         return True
