@@ -32,6 +32,10 @@ Each folder contains:
 4. Best Time to Buy and Sell Stock
 5. Summary Ranges
 6. Product of Array Except Self
+7. Merge Intervals
+8. Spiral Matrix
+9. Rotate Image
+
 
 ### Strings
 
@@ -54,6 +58,12 @@ Each folder contains:
 * Range Detection
 * Expected Value Tracking
 * Product of Array Except Self
+* Sorting
+* Interval Merging
+* Matrix Traversal
+* Boundary Traversal
+* In-Place Matrix Manipulation
+
 
 ### Strings
 
