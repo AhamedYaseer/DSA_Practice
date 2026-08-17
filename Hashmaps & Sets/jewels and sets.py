@@ -72,7 +72,7 @@ The set stores the distinct characters from jewels.
 
 class Solution:
     def numJewelsInStones(self, jewels: str, stones: str) -> int:
-        set_jewels = set(jewels)
+        set_jewels = set(jewels)                #changed to set to make membership operation at O(n) in line 79
         output = 0
 
         for i in stones:
