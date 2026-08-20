@@ -92,3 +92,71 @@ class Solution:
                 rs, re = rs + 3, re + 3
 
         return True
+
+
+Approach:
+Hash Sets / Duplicate Detection
+
+Why this works:
+A valid Sudoku board must satisfy three conditions:
+- No duplicate digits in any row.
+- No duplicate digits in any column.
+- No duplicate digits in any 3×3 subsection.
+
+We maintain three collections of sets:
+- row[r] stores the numbers already encountered in row r.
+- col[c] stores the numbers already encountered in column c.
+- sec[sect] stores the numbers already encountered in each 3×3 subsection.
+
+For every non-empty cell, we check whether the number already exists
+in its corresponding row, column, or subsection.
+
+If it exists in any of them, the board is invalid and we immediately
+return False.
+
+Otherwise, we add the number to all three sets.
+
+The subsection index is calculated using:
+
+    sect = (r // 3) * 3 + (c // 3)
+
+This maps each cell to one of the nine 3×3 subsections.
+
+Time Complexity:
+O(n²)
+We visit every cell once. Set membership, insertion, and lookup take
+O(1) on average.
+
+Space Complexity:
+O(n²)
+We maintain sets for all rows, columns, and 3×3 subsections.
+
+For the fixed 9×9 Sudoku board, this is effectively O(1).
+
+# ----------------------------------
+# Hash Sets / Duplicate Detection
+# ----------------------------------
+
+class Solution:
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        row = [set() for _ in range(9)]
+        col = [set() for _ in range(9)]
+        sec = [set() for _ in range(9)]
+
+        for r in range(9):
+            for c in range(9):
+                num = board[r][c]
+
+                if num == ".":
+                    continue
+
+                sect = (r // 3) * 3 + (c // 3)
+
+                if num in row[r] or num in col[c] or num in sec[sect]:
+                    return False
+
+                row[r].add(num)
+                col[c].add(num)
+                sec[sect].add(num)
+
+        return True
