@@ -90,3 +90,53 @@ class Solution:
 
             if counter[i] > len(nums) / 2:
                 return i
+
+
+Approach:
+Boyer–Moore Voting Algorithm
+
+Why this works:
+The majority element appears more than n/2 times, so it occurs more
+frequently than all other elements combined.
+
+We maintain:
+- candidate → the current possible majority element
+- count → the balance between the candidate and other elements
+
+When count becomes 0, we choose the current element as the new
+candidate.
+
+If the current element matches the candidate, we increase count.
+Otherwise, we decrease count.
+
+Different elements effectively cancel each other out. Since the
+majority element appears more than n/2 times, it cannot be completely
+cancelled and will remain as the final candidate.
+
+Time Complexity:
+O(n)
+We traverse the array once.
+
+Space Complexity:
+O(1)
+Only candidate and count are stored.
+
+# ----------------------------------
+# Boyer–Moore Voting Algorithm
+# ----------------------------------
+
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        count = 0
+        candidate = nums[0]
+
+        for i in nums:
+            if count == 0:
+                candidate = i
+
+            if i == candidate:
+                count += 1
+            else:
+                count -= 1
+
+        return candidate
