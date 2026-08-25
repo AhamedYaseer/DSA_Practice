@@ -50,3 +50,43 @@ class Solution:
                 max_val = i
 
         return rev_counter[max_val]
+
+
+Approach:
+Hash Map / Frequency Counting with Early Return
+
+Why this works:
+We count the frequency of each element using a hash map.
+
+After incrementing the count of an element, we immediately check
+whether its frequency is greater than n/2.
+
+Since the problem guarantees that a majority element exists, once
+an element's count becomes greater than n/2, it must be the majority
+element, so we can immediately return it.
+
+This avoids creating a reverse frequency dictionary and eliminates
+the additional traversal used in the previous approach.
+
+Time Complexity:
+O(n)
+We traverse the array once in the worst case.
+
+Space Complexity:
+O(n)
+In the worst case, the dictionary may store all distinct elements.
+
+# ----------------------------------
+# Hash Map / Frequency Counting with Early Return
+# ----------------------------------
+
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+
+        counter = {}
+
+        for i in nums:
+            counter[i] = counter.get(i, 0) + 1
+
+            if counter[i] > len(nums) / 2:
+                return i
