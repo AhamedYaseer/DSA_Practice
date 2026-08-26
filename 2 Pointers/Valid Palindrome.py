@@ -51,3 +51,64 @@ class Solution:
             r -= 1
 
         return True
+
+
+Approach:
+Two Pointers / In-Place Character Checking
+
+Why this works:
+We use two pointers, one starting from the beginning of the string
+and the other from the end.
+
+Non-alphanumeric characters are ignored by moving the corresponding
+pointer and continuing the loop.
+
+For valid characters, we compare them after converting both to
+lowercase.
+
+If the characters are different, the string is not a palindrome.
+
+If all valid characters match while the pointers move toward the
+center, the string is a palindrome.
+
+The continue statements ensure that when a non-alphanumeric
+character is encountered, only that pointer moves and the character
+is not compared with the character at the opposite pointer.
+
+Unlike the initial approach, we do not create a separate cleaned
+string.
+
+Time Complexity:
+O(n)
+Each character is processed at most a constant number of times.
+
+Space Complexity:
+O(1)
+Only two pointers are used as auxiliary space.
+
+# ----------------------------------
+# Two Pointers / In-Place Character Checking
+# ----------------------------------
+
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        l = 0
+        r = len(s) - 1
+
+        while l < r:
+
+            if not s[l].isalnum():
+                l += 1
+                continue
+
+            if not s[r].isalnum():
+                r -= 1
+                continue
+
+            if s[l].lower() != s[r].lower():
+                return False
+
+            l += 1
+            r -= 1
+
+        return True
