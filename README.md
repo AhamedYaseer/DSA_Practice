@@ -1,85 +1,74 @@
 # DSA Practice (Python)
 
-This repository contains my practice solutions for Data Structures and Algorithms (DSA) using Python.
+A collection of my Data Structures and Algorithms practice
+solutions implemented in Python.
 
-The goal is to build strong problem-solving skills by understanding brute-force approaches first and then optimizing them using common interview patterns.
+The repository focuses on understanding problem-solving patterns,
+optimizing solutions, and analyzing time and space complexity.
 
-## Language
+## Topics
 
-* Python
+- Arrays
+- Strings
+- Hashmaps & Sets
+- Two Pointers
 
-## Repository Structure
-
-Problems are currently organized by topic:
-
-* Arrays
-* Strings
-
-Each folder contains:
-
-* Individual problem solutions
-* Approach explanation
-* Time and Space Complexity analysis
-* Topic-specific README with common patterns used so far
-
-## Problems Solved So Far
-
-### Arrays
-
-1. Two Sum
-2. Remove Element
-3. Find Closest Number to Zero
-4. Best Time to Buy and Sell Stock
-5. Summary Ranges
-6. Product of Array Except Self
-7. Merge Intervals
-8. Spiral Matrix
-9. Rotate Image
-
-
-### Strings
-
-1. Palindrome Number
-2. Check if a String Is an Acronym of Words
-3. Merge Strings Alternately
-4. Roman to Integer
-5. Is Subsequence
-6. Longest Common Prefix
-
-## Common Patterns Learned
-
-### Arrays
-
-* Brute Force
-* Hashing
-* Two Pointers
-* Greedy (Running Minimum)
-* Linear Scan
-* Range Detection
-* Expected Value Tracking
-* Product of Array Except Self
-* Sorting
-* Interval Merging
-* Matrix Traversal
-* Boundary Traversal
-* In-Place Matrix Manipulation
-
-
-### Strings
-
-* String Traversal
-* Simulation
-* Efficient String Construction (List + Join)
-* Two Pointers
-* Vertical Scanning (Prefix Comparison)
-* Mathematical Reversal
+More topics will be added as I progress.
 
 ## Problem-Solving Approach
 
-1. Understand the problem clearly
-2. Write a brute-force solution
-3. Analyze Time and Space Complexity
-4. Optimize using suitable patterns
-5. Document the approach and learning
-6. Maintain clean and readable solutions
+For each problem, I try to follow this progression:
 
+1. Understand the problem
+2. Develop a brute-force solution
+3. Analyze time and space complexity
+4. Identify possible optimizations
+5. Implement the optimized solution
+6. Analyze the final complexity
+
+## Patterns Learned
+
+### Arrays
+- Array Traversal
+- Sorting
+- Matrix Traversal
+- In-place Array Manipulation
+- Two Pointers
+
+### Hashmaps & Sets
+- Frequency Counting
+- Membership Checking
+- Duplicate Detection
+- Hashable Keys
+- Frequency Signatures
+- Sequence Start Detection
+- Early Return
+
+### Two Pointers
+- Left and Right Pointers
+- Opposite-End Traversal
+- Inward Traversal
+- Sorted Array Optimization
+
+## Repository Structure
+
+```text
+DSA_Practice/
+│
+├── Arrays/
+│   ├── README.md
+│   └── ...
+│
+├── Strings/
+│   ├── README.md
+│   └── ...
+│
+├── Hashmaps & Sets/
+│   ├── README.md
+│   └── ...
+│
+├── Two Pointers/
+│   ├── README.md
+│   └── ...
+│
+└── README.md
