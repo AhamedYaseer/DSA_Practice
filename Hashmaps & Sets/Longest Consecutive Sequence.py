@@ -58,3 +58,56 @@ class Solution:
                 max_val = i
 
         return max_val
+
+
+Approach:
+Hash Set / Sequence Start Detection
+
+Why this works:
+We first convert nums into a set to allow O(1) average-time
+membership checks and automatically remove duplicates.
+
+For each number, we only start counting a consecutive sequence if
+its previous number (i - 1) is not present in the set.
+
+This means the current number is the beginning of a sequence.
+
+Once a starting number is found, we keep checking for the next
+consecutive numbers (i + 1, i + 2, ...) and count the sequence length.
+
+We do not start another sequence from numbers that already have a
+predecessor, which prevents repeatedly traversing the same sequence.
+
+The maximum sequence length is maintained using max_cons.
+
+Time Complexity:
+O(n)
+Creating the set takes O(n), and each number is processed a constant
+number of times overall. Although there is a while loop inside the
+for loop, the consecutive sequence is only traversed from its starting
+element, so the total work remains O(n) on average.
+
+Space Complexity:
+O(n)
+The set stores up to n distinct elements.
+
+# ----------------------------------
+# Hash Set / Sequence Start Detection
+# ----------------------------------
+
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        max_cons = 0
+        numset = set(nums)
+
+        for i in numset:
+            if i - 1 not in numset:
+                cons = 1
+
+                while i + 1 in numset:   #even though, nested loops -> O(n) since while loop total operation is itself n, so n+n -> O(n) not n*n
+                    cons += 1
+                    i += 1
+
+                max_cons = max(max_cons, cons)
+
+        return max_cons
