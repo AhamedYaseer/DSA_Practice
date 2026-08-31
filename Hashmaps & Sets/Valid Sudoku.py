@@ -44,7 +44,7 @@ class Solution:
 
         # Each row
         for i in board:
-            mod_num = number.copy()   #deep copying to avoid affecting original
+            mod_num = number.copy()   #shallow copying to avoid affecting original
 
             for j in i:
                 if j in mod_num:
