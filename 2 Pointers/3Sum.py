@@ -53,7 +53,7 @@ class Solution:
         output = []
 
         for i in range(len(nums)):
-            if i != 0 and nums[i] == nums[i - 1]:
+            if i != 0 and nums[i] == nums[i - 1]:  #to avoid duplicate i, i!=0 case handled to avoid error for nums[i-1]
                 continue
 
             l = i + 1
@@ -63,12 +63,12 @@ class Solution:
                 if nums[l] + nums[r] == -nums[i]:
                     output.append([nums[i], nums[l], nums[r]])
                     l += 1
-                    r -= 1
+                    r -= 1   #below code is to avoid adding same nums[l],nums[r] if nums has duplicates
 
-                    while l != len(nums) and nums[l] == nums[l - 1]:
+                    while l<r and nums[l] == nums[l - 1]: #l should not be greater than r, as we increment l (else if no check, l will be greater than len(nums))
                         l += 1
 
-                    while r >= 0 and nums[r] == nums[r + 1]:
+                    while r >l and nums[r] == nums[r + 1]: #r should not be lesser than l, as we decrement r (else if no check, r will be less than 0)
                         r -= 1
 
                 elif nums[l] + nums[r] < -nums[i]:
