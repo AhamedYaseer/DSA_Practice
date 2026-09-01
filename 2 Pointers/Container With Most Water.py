@@ -38,3 +38,62 @@ class Solution:
                 area = max(area, c_area)
 
         return area
+
+Approach:
+Two Pointers
+
+Why this works:
+The area between two lines is determined by:
+
+    min(height[l], height[r]) * (r - l)
+
+We start with the two pointers at the opposite ends of the array,
+giving the maximum possible width.
+
+At each step, we calculate the current area and update the maximum
+area found.
+
+The shorter line limits the height of the container. Since moving
+either pointer inward always decreases the width, moving the taller
+line cannot improve the area while the shorter line remains the
+limiting factor.
+
+Therefore:
+- If height[l] < height[r], move l to the right.
+- Otherwise, move r to the left.
+
+We continue until the two pointers meet.
+
+This eliminates the need to check every possible pair of lines.
+
+Time Complexity:
+O(n)
+Both pointers move toward each other, and each position is processed
+at most once.
+
+Space Complexity:
+O(1)
+Only a constant amount of extra space is used.
+
+# ----------------------------------
+# Two Pointers
+# ----------------------------------
+
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+
+        area = 0
+        c_area = 0
+        l = 0
+        r = len(height) - 1
+
+        while l < r:
+            c_area = min(height[l], height[r]) * (r - l)
+            area = max(area, c_area)
+
+            if height[l] < height[r]:
+                l += 1
+            else:
+                r -= 1
+
+        return area
