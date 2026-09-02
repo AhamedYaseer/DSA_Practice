@@ -66,3 +66,27 @@ class Solution:
 
         return score
 ```
+
+# ----------------------------------
+# Stack Simulation (cleaned version to avoid loop in the last)
+# ----------------------------------
+
+
+class Solution:
+    def calPoints(self, operations: List[str]) -> int:
+        output=[]
+        score=0
+        for i in operations:
+            if i!='C' and i!='D' and i!='+':
+                output.append(i)
+                score+=int(i)
+            elif i=='C':
+                score-=int(output.pop())
+
+            elif i=='D':
+                output.append(2*int(output[-1]))
+                score+=int(output[-1])
+            else:
+                output.append(int(output[-1])+int(output[-2]))
+                score+=int(output[-1])
+        return score
