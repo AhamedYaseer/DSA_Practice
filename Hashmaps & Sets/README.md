@@ -14,6 +14,8 @@ detection.
 - Hashable Tuple as Dictionary Key
 - Early Return
 - Matrix Traversal
+- Sequence Start Detection
+- Boyer-Moore Voting Algorithm
 
 
 ## Problems Covered
@@ -22,13 +24,12 @@ detection.
 |------------------------------|------------------------------------|
 | Jewels and Stones            | Hash Set, Membership Checking      |
 | Contains Duplicate           | Hash Map, Membership Tracking      |
-| Contains Duplicate           | Hash Map                           |
-| Ransom Note.                 | Hash Map / Frequency Counting      |
+| Ransom Note                  | Hash Map / Frequency Counting      |
 | Valid Anagram                | Hash Map / Frequency Counting      |
 | Maximum Number of Balloons   | Hash Map / Frequency Counting      |
 | Valid Sudoku                 | Hash Set / Duplicate Detection     |
 | Group Anagrams               | Hash Map / Frequency Signature     |
-| Majority Element             | Hash Map / Frequency Counting      |
+| Majority Element             | Hash Map / Frequency Counting, Boyer-Moore Voting |
 | Longest Consecutive Sequence | Hash Set / Sequence Start Detection|
 
 
@@ -41,6 +42,10 @@ detection.
 - Use a hash map when additional information such as frequency is
   required.
 - Use a hash set when only existence/membership needs to be tracked.
+- A tuple can be used as a hashable dictionary key for fixed-size
+  frequency signatures.
+- Boyer-Moore can find the majority element using O(1) auxiliary
+  space.
 
 ## Complexity
 
