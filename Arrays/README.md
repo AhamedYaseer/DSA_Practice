@@ -28,7 +28,7 @@ This folder contains array-based DSA problems.
 | Find Closest Number to Zero     | Linear Scan / Comparison                                 |
 | Best Time to Buy and Sell Stock | Brute Force, Greedy (Running Minimum)                    |
 | Summary Ranges                  | Membership Check (Brute Force), Expected Value Tracking  |
-| Product of Array Except Self    | Prefix/Suffix Products                                   |
+| Product of Array Except Self    | Brute Force, Prefix/Suffix Products                     |
 | Merge Intervals                 | Brute Force, Sorting, Interval Merging                   |
 | Spiral Matrix                   | Boundary Traversal                                       |
 | Rotate Image                    | Extra Matrix, In-Place Layer-by-Layer Rotation           |
