@@ -71,3 +71,73 @@ class Solution:
                 output += val
 
         return output
+
+
+Approach:
+Two Pointers / Left and Right Maximums
+
+Why this works:
+The amount of water trapped at a position depends on the smaller
+of the maximum heights on its left and right.
+
+Instead of storing the left and right maximum for every position,
+we use two pointers and maintain only:
+- max_left → maximum height encountered from the left.
+- max_right → maximum height encountered from the right.
+
+We start with l at the beginning and r at the end of the array.
+
+At each step, we update max_left and max_right.
+
+If max_left is less than or equal to max_right, the left side is
+the limiting side. Therefore, we can calculate the water at l using
+max_left and move l to the right.
+
+Otherwise, the right side is the limiting side. We calculate the
+water at r using max_right and move r to the left.
+
+This allows us to calculate the trapped water without storing
+separate left and right maximum arrays.
+
+Time Complexity:
+O(n)
+Both pointers move toward each other, so each position is processed
+at most once.
+
+Space Complexity:
+O(1)
+Only two pointers, two maximum values, and a few variables are used.
+
+# ----------------------------------
+# Two Pointers / Left and Right Maximums
+# ----------------------------------
+
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        output = 0
+
+        l = 0
+        r = len(height) - 1
+
+        max_left = 0
+        max_right = 0
+
+        while l < r:
+
+            if height[l] > max_left:
+                max_left = height[l]
+
+            if height[r] > max_right:
+                max_right = height[r]
+
+            if max_left <= max_right:
+                output = output + max_left - height[l] \
+                    if max_left - height[l] > 0 else output
+                l += 1
+
+            else:
+                output = output + max_right - height[r] \
+                    if max_right - height[r] > 0 else output
+                r -= 1
+
+        return output
