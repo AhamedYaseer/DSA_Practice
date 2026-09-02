@@ -12,6 +12,7 @@ optimizing solutions, and analyzing time and space complexity.
 - Strings
 - Hashmaps & Sets
 - Two Pointers
+- Stacks
 
 More topics will be added as I progress.
 
@@ -34,6 +35,14 @@ For each problem, I try to follow this progression:
 - Matrix Traversal
 - In-place Array Manipulation
 - Two Pointers
+- Filtering
+- Greedy (Running Minimum)
+- Range Detection
+- Expected Value Tracking
+- Prefix/Suffix Products
+- Interval Merging
+- Boundary Traversal
+- In-Place Matrix Manipulation
 
 ### Hashmaps & Sets
 - Frequency Counting
@@ -43,12 +52,25 @@ For each problem, I try to follow this progression:
 - Frequency Signatures
 - Sequence Start Detection
 - Early Return
+- Matrix Traversal
 
 ### Two Pointers
 - Left and Right Pointers
 - Opposite-End Traversal
 - Inward Traversal
 - Sorted Array Optimization
+- In-Place Array Processing
+- Duplicate Handling
+- Two-Pointer Water Trapping
+
+### Stacks
+- Stack Simulation
+- Matching Parentheses
+- Reverse Polish Notation
+- Monotonic Stack
+- Next Greater Element
+- Minimum Tracking
+- Index Tracking
 
 ## Repository Structure
 
@@ -67,7 +89,11 @@ DSA_Practice/
 │   ├── README.md
 │   └── ...
 │
-├── Two Pointers/
+├── 2 Pointers/
+│   ├── README.md
+│   └── ...
+│
+├── Stacks/
 │   ├── README.md
 │   └── ...
 │
