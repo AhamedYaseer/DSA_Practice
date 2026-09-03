@@ -18,6 +18,7 @@ This folder contains array-based DSA problems.
 * Matrix Traversal
 * Boundary Traversal
 * In-Place Matrix Manipulation
+* Subarray Sum
 
 ## Problems Covered
 
@@ -32,4 +33,5 @@ This folder contains array-based DSA problems.
 | Merge Intervals                 | Brute Force, Sorting, Interval Merging                   |
 | Spiral Matrix                   | Boundary Traversal                                       |
 | Rotate Image                    | Extra Matrix, In-Place Layer-by-Layer Rotation           |
+| Maximum Subarray                | Brute Force, Subarray Sum                                |
 
