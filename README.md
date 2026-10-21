@@ -13,6 +13,7 @@ optimizing solutions, and analyzing time and space complexity.
 - Hashmaps & Sets
 - Two Pointers
 - Stacks
+- Linked List
 
 More topics will be added as I progress.
 
@@ -21,11 +22,13 @@ More topics will be added as I progress.
 For each problem, I try to follow this progression:
 
 1. Understand the problem
-2. Develop a brute-force solution
+2. Develop a brute-force or straightforward solution
 3. Analyze time and space complexity
 4. Identify possible optimizations
-5. Implement the optimized solution
+5. Implement an optimized solution when appropriate
 6. Analyze the final complexity
+
+I preserve earlier approaches when useful so I can track how a solution improves over time.
 
 ## Patterns Learned
 
@@ -72,6 +75,12 @@ For each problem, I try to follow this progression:
 - Minimum Tracking
 - Index Tracking
 
+### Linked List
+- Linked List Traversal
+- Pointer Tracking
+- In-Place Node Modification
+- Skipping Duplicate Nodes
+
 ## Repository Structure
 
 ```text
@@ -97,4 +106,9 @@ DSA_Practice/
 │   ├── README.md
 │   └── ...
 │
+├── Linked List/
+│   ├── README.md
+│   └── Remove Duplicates from Sorted List.py
+│
 └── README.md
+```
