@@ -40,3 +40,37 @@ class Solution(object):
             current=current.next
         return current
 ```
+
+
+Approach:
+Slow and Fast Pointers
+
+Why this works:
+Use two pointers:
+- `slow` moves one node at a time.
+- `fast` moves two nodes at a time.
+- When `fast` reaches the end, `slow` will be at the middle.
+- For an even-length list, `slow` reaches the second middle node.
+- `while fast and fast.next` ensures that `fast.next.next` can be accessed safely.
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(1)
+
+---
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def middleNode(self, head):
+        slow = fast = head
+        while fast and fast.next:
+            slow=slow.next
+            fast=fast.next.next
+        return slow
+```
