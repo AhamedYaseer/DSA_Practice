@@ -46,3 +46,62 @@ class Solution:
             OldToNew[current].random=OldToNew[current.random]
             current=current.next
         return OldToNew[head]
+
+
+Approach:
+Interweaving Nodes (Three-Pass Linked List Traversal)
+
+Why this works:
+- First, create a copy of every original node and insert it immediately after the corresponding original node.
+- The original and copied nodes are now interwoven: `A → A' → B → B'`.
+- Second, assign the random pointers of copied nodes. Since every copied node is next to its original node, `current.random.next` gives the corresponding copied random node.
+- Third, separate the interwoven list into two independent lists, restoring the original list and extracting the copied list.
+- Return `copyhead`, which points to the newly created linked list.
+- All copied nodes are new objects; no original nodes are reused.
+
+Time Complexity:
+O(n) — Three traversals of the linked list.
+
+Space Complexity:
+O(1) — No hash map or additional data structure is used. Only a constant number of pointers are maintained (excluding the newly created copied nodes).
+
+---
+
+```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+        self.val = int(x)
+        self.next = next
+        self.random = random
+"""
+
+class Solution:
+    def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+        if not head:
+            return None
+        current=head
+        while current:
+            CopyCurrent=Node(current.val) #creating new node with same value
+            temp=current.next             #saving next node with temp
+            current.next=CopyCurrent      #now copy node becomes next node
+            CopyCurrent.next=temp         #next original becomes next of copy
+            current=temp
+
+        current=head
+        while current:
+            current.next.random=current.random.next if current.random else None
+            current=current.next.next    
+
+        current=head
+        copyhead=head.next
+        while current:  #to traverse only original
+            copy=current.next #copy of that original
+            nextoriginal=copy.next  #getting next original
+            current.next=nextoriginal #now current points to next original
+            if nextoriginal:
+                copy.next=nextoriginal.next
+            current=nextoriginal
+        return copyhead
+```
